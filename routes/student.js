@@ -8,4 +8,11 @@ router.get('/data', function(req, res) {
   res.json({name:"Shivam"});
 });
 
+router.get('/:da', function(req, res) {
+    // res.render('index', { title: 'Express' });
+    console.log(req.params.da);
+    res.json({name:req.params.da});
+  });
+
+
 module.exports = router;
