@@ -8,7 +8,7 @@ router.get('/', function(req, res) {
   res.json({name:"Shivam"});
 });
 
-router.get('/',function(req, res){
-  res.sendFile(path.join(__dirname, '/index.html'));
+router.get('/:da',function(req, res){
+  res.render('index',{title:req.params.da});
 });
 module.exports = router;
