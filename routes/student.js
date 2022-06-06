@@ -8,6 +8,13 @@ router.get('/data', function(req, res) {
   res.json({name:"Shivam"});
 });
 
+router.get('/', function(req, res) {
+  // res.render('index', { title: 'Express' });
+  console.log(req);
+  res.json({name:res.body.fname});
+});
+
+
 router.get('/:da/:ta', function(req, res) {
     // res.render('index', { title: 'Express' });
     console.log(req.params.da);
