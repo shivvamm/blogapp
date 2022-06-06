@@ -1,12 +1,23 @@
 var express = require('express');
 var router = express.Router();
 
-/* GET home page. */
-router.get('/data', function(req, res) {
-  // res.render('index', { title: 'Express' });
-  console.log(req);
-  res.json({name:"Shivam"});
+// /* GET home page. */
+// router.get('/data', function(req, res) {
+//   // res.render('index', { title: 'Express' });
+//   console.log(req);
+//   res.json({name:"Shivam"});
+// });
+
+
+router.post('/data', function(req, res, next) {
+  console.log(req.body);//print the req
+  // console.log(req.query.lname);
+  console.log(req.query.lname);
+  // res.json({name:"SHivam beta"}); //send the response to the server basically a (Get request) 
+ res.render('index', { title: req.body.fname});
 });
+
+
 
 router.get('/:da/:ta', function(req, res) {
     // res.render('index', { title: 'Express' });
