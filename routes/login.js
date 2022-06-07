@@ -15,7 +15,9 @@ router.get('/', function(req, res) {
 router.post('/getLogin', function(req, res) {
     console.log(req.query);
     // res.send({"name":"shivam"});
-    res.json({"EMAIL":req.body.email,"PASS":req.body.password});
+    x=req.body.email;
+    y=req.body.password;
+    res.json({"EMAIL":req.body.email,"PASS":req.body.password,"Concatinated String":x+" and "+y});
  });
 
 
