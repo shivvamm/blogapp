@@ -1,6 +1,23 @@
 var express = require('express');
 var router = express.Router();
 
+var modelLogin = require("../model/login")//calling file or exporting from lgin
+router.get('/',function(req,res){
+   modelLogin.a("unknown")
+   res.render('login');
+});
+
+//Making connection to mysql
+//setting up host user,name,to sql
+var con = mysql.createConnection({
+   host: "192.168.17.44",
+   user:"root",
+   password:"1234"
+});
+
+
+
+
 /* GET home page. */
 router.get('/', function(req, res) {
    res.render('login');
