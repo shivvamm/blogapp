@@ -1,5 +1,7 @@
 var express = require('express');
 var router = express.Router();
+var mysql = require('mysql');
+
 
 var modelLogin = require("../model/login")//calling file or exporting from lgin
 router.get('/',function(req,res){
@@ -15,6 +17,11 @@ var con = mysql.createConnection({
    password:"1234"
 });
 
+con.connect(function(err) {
+   // if (err) throw err;
+   console.log("Connected!");
+   console.log(a);
+ });
 
 
 
