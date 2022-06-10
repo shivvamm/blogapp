@@ -1,9 +1,10 @@
 var express = require('express');
 var router = express.Router();
 var mysql = require('mysql');
+const a = require('modal/login');
 
-
-var modelLogin = require("../model/login")//calling file or exporting from lgin
+var modelLogin = require("../model/login");//calling file or exporting from lgin
+const { getLoginPost } = require('../controller/controller');
 router.get('/',function(req,res){
    modelLogin.a("unknown")
    res.render('login');
@@ -25,9 +26,11 @@ con.connect(function(err) {
 
 
 
+
 /* GET home page. */
 router.get('/', function(req, res) {
-   res.render('login');
+   // res.render('login');
+   getLoginPost(req,res,next)
 });
 
 // router.get('/getLogin', function(req, res) {
