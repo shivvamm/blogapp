@@ -1,7 +1,7 @@
 var express = require('express');
 var router = express.Router();
 var mysql = require('mysql');
-const a = require('modal/login');
+const a = require('model/login');
 
 var modelLogin = require("../model/login");//calling file or exporting from lgin
 const { getLoginPost } = require('../controller/controller');
