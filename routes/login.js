@@ -1,12 +1,12 @@
 var express = require('express');
 var router = express.Router();
 var mysql = require('mysql');
-const a = require('model/login');
+const a = require('../model/login');
 
 var modelLogin = require("../model/login");//calling file or exporting from lgin
 const { getLoginPost } = require('../controller/controller');
 router.get('/',function(req,res){
-   modelLogin.a("unknown")
+   modelLogin("unknown")
    res.render('login');
 });
 
