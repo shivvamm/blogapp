@@ -5,33 +5,33 @@ const a = require('../model/login');
 
 var modelLogin = require("../model/login");//calling file or exporting from lgin
 const { getLoginPost } = require('../controller/controller');
-router.get('/',function(req,res){
-   modelLogin("unknown")
-   res.render('login');
+// router.get('/',function(req,res){
+//    modelLogin("unknown")
+//    res.render('login');
 
-});
+// });
 
 //Making connection to mysql
 //setting up host user,name,to sql
 var con = mysql.createConnection({
-   host: "192.168.17.44",
-   user:"root",
-   password:"1234"
-});
-
-con.connect(function(err) {
-   // if (err) throw err;
-   console.log("Connected!");
-   console.log(a);
+   host: "easylearning.guru",
+   user: "kcc_student",
+   password: "Kccitm.edu.in1",
+   database: " kccStudent"
  });
 
 
 
 
+
+ con.connect();
 /* GET home page. */
 router.get('/', function(req, res) {
-   // res.render('login');
-   getLoginPost(req,res,next)
+     res.render('login');
+   con.connect(function (err) {
+      if (err) console.log("err");
+      else console.log("Connected!");
+   });
 });
 
 
