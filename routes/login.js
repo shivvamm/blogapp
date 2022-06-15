@@ -8,6 +8,7 @@ const { getLoginPost } = require('../controller/controller');
 router.get('/',function(req,res){
    modelLogin("unknown")
    res.render('login');
+
 });
 
 //Making connection to mysql
@@ -33,6 +34,9 @@ router.get('/', function(req, res) {
    getLoginPost(req,res,next)
 });
 
+
+
+
 // router.get('/getLogin', function(req, res) {
 //     console.log(req.query);
 //     // res.send({"name":"shivam"});
@@ -45,7 +49,15 @@ router.post('/getLogin', function(req, res) {
     x=req.body.email;
     y=req.body.password;
     res.json({"EMAIL":req.body.email,"PASS":req.body.password,"Concatinated String":x+" and "+y});
+    
  });
+
+
+ router.all('/upgateLogin', function(req, res) {
+   res.render('login');
+   con.query("")
+  
+});
 
 
 module.exports = router;

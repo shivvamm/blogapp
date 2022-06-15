@@ -16,10 +16,24 @@
     <button id="click">Press Me</button>
 
 
+<tr>
+   {{!-- {{#data}} --}}
+    <form action="/login/upgateLogin" method="post" class="{{id}}">
+    <input type="text"  name="id" value="{{id}}"><br>
+    <input type="text"  name="fname" value="{{name}}"><br>
+    <input type="text"  name="lname" value="{{lname}}"><br>
+    <input type="text"  name="address" value="{{address}}"><br>
+    <input type="text"  name="city" value="{{city}}"><br>
+    <button name="update" class="btn-update" aria-placeholder="Update">Update</button><br>
+    <button name="delete" class="btn-delete">Delete</button><br>
+    </form> 
+ {{!-- {{/data}} --}}
+</tr>
+
+
 
 
     <script>
-        
         
 {{!-- $("button").click(function(){
      console.log("Jai Shree Ram")    
@@ -30,6 +44,17 @@ $("button").click(function(){
     {{!-- $("#div1").html(result); --}}
     console.log(result);
   }});
+});
+
+
+
+{{!-- to update data --}}
+$(".btn-update").click(()=>{
+  console.log("Update"+event.target.id)
+});
+
+$(".btn-delete").click(()=>{
+  console.log("Deleted"+event.target.id)
 });
 
 </script>
