@@ -27,7 +27,7 @@ var con = mysql.createConnection({
 
 
 
-//  con.connect();
+
 /* GET home page. */
 router.get('/', function(req, res) {
      res.render('login');
@@ -57,6 +57,27 @@ router.post('/getLogin', function(req, res) {
     
  });
 
+
+var pool = mysql.createPool({
+   connectionLimit: 10,
+   host : 'easylearning.guru',
+   user :  'kcc_student',
+   password : 'Kccitm.edu.in1',
+   database : 'kccStudent'
+});
+
+router.get('/read', function(req, res) {
+   pool.getConnection(function (err,connection){
+      connection.query("SELECT * FROM SHIVAMP",function(err,rows){
+         connection.release();
+         if(err) throw err;
+
+         console.log(rows.length);
+         res.send(JSON.stringify(rows));
+      });
+   });
+  
+});
 
  router.all('/upgateLogin', function(req, res) {
    res.render('login');
