@@ -2,6 +2,8 @@ var express = require('express');
 var router = express.Router();
 var mysql = require('mysql');
 const a = require('../model/login');
+var session = require('express-session')
+var map = require('underscore/cjs/map.js');
 
 var modelLogin = require("../model/login");//calling file or exporting from lgin
 const { getLoginPost } = require('../controller/controller');
@@ -24,7 +26,7 @@ var con = mysql.createConnection({
 
 
 
- con.connect();
+//  con.connect();
 /* GET home page. */
 router.get('/', function(req, res) {
      res.render('login');
