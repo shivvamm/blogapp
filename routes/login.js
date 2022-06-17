@@ -4,6 +4,7 @@ var mysql = require('mysql');
 const a = require('../model/login');
 var session = require('express-session')
 var map = require('underscore/cjs/map.js');
+var _ = require('underscore');
 
 var modelLogin = require("../model/login");//calling file or exporting from lgin
 const { getLoginPost } = require('../controller/controller');
@@ -33,6 +34,9 @@ router.get('/', function(req, res) {
    con.connect(function (err) {
       if (err) console.log("err");
       else console.log("Connected!");
+      console.log(_.map([1,2,3])),
+      console.log(_.map([1, 2, 3], function(num){ return num * 3; }))
+      
    });
 });
 
