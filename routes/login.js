@@ -34,8 +34,7 @@ router.get('/', function(req, res) {
    con.connect(function (err) {
       if (err) console.log("err");
       else console.log("Connected!");
-      console.log(_.map([1,2,3])),
-      console.log(_.map([1, 2, 3], function(num){ return num * 3; }))
+     
       
    });
 });
