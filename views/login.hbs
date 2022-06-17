@@ -18,14 +18,15 @@
 
 <tr>
    {{!-- {{#data}} --}}
-    <form action="/login/upgateLogin" method="post" class="{{id}}">
+    <form action="/login/insert" method="post" class="{{id}}">
     <input type="text"  name="id" value="{{id}}"><br>
     <input type="text"  name="fname" value="{{name}}"><br>
     <input type="text"  name="lname" value="{{lname}}"><br>
     <input type="text"  name="address" value="{{address}}"><br>
     <input type="text"  name="city" value="{{city}}"><br>
-    <button name="update" class="btn-update" aria-placeholder="Update">Update</button><br>
-    <button name="delete" class="btn-delete">Delete</button><br>
+    <input type="submit" value="submit">
+    {{!-- <button name="update"  class="btn-update" aria-placeholder="Update">Update</button><br>
+    <button name="delete" class="btn-delete">Delete</button><br> --}}
     </form> 
  {{!-- {{/data}} --}}
 </tr>

@@ -79,6 +79,20 @@ router.get('/read', function(req, res) {
   
 });
 
+
+router.all('/insert', function(req, res) {
+  var sql = "INSERT INTO `SHIVAMP` (`lname`, `fname`) \
+  VALUES ('"+req.body.lname+"','"+req.body.fname+"');"
+  console.log(sql)
+  con.connect(
+     con.query(sql,function(err,result){
+        console.log(result);
+     })
+  )
+  
+});
+
+
  router.all('/upgateLogin', function(req, res) {
    res.render('login');
    con.query("")
