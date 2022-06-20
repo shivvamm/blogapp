@@ -24,21 +24,21 @@ router.get('/cal',function(req, res){
 router.all('/cal/add',function(req, res){
   var x=parseInt(req.body.num1);
    var  y=parseInt(req.body.num2);
-    var result=x+y
+    var result=x+y;
   res.render('index',result);
 });
 
 router.all('/cal/sub',function(req, res){
   var x=parseInt(req.body.num1);
     var y=parseInt(req.body.num2);
-    var resutl=x-y
+    var resutl=x-y;
   res.render('index',result);
 });
 
 router.all('/cal/mul',function(req, res){
   var x=parseInt(req.body.num1);
     var y=parseInt(req.body.num2);
-    var result=x*y
+    var result=x*y;
   res.render('index',result);
 });
 
