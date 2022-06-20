@@ -1,16 +1,94 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-    <title>Document</title>
-</head>
-<body>
-    <button class="data">Get data</button>
-    <button class="data">Get data</button>
+    <title>CALCULATOR</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <style>
+        .add,
+        .sub,
+        .mul {
+            margin-left: 30px;
+            margin-top: 10px;
+        }
 
-    
+        .num-con {
+            margin-top: 10px;
+            margin-bottom: 10px;
+        }
+    </style>
+</head>
+
+<body>
+    <form  method="post">
+        <fieldset>
+            <legend>Calulator</legend>
+            <section class="num-con"> <label> Number 1</label><input type="number" class="num1" name="num1"><br></section>
+            <section calss="num-con"><label> Number 2</label><input type="number" class="num2" name="num2"><br></section>
+            <button id="add">ADD</button> <button id="sub">SUB</button><button id="mul">MULTIPLY</button><br>
+            <label>ANSWER</label>
+            <div id="ans" class="num-con">{{result}}</div>
+        </fieldset>
+    </form>
+    <script>
+
+        {{!-- $(document).ready(function () {
+            $("#add").on('click', function () {
+                Add();
+            });
+            $("#sub").on('click', function () {
+                Substract();
+            })
+            $("#mul").on('click', function () {
+                Multiply();
+            })
+        });
+
+        function Add() {
+            var no1 = parseInt($(".num1").val());
+            var no2 = parseInt($(".num2").val());
+            var result = no1 + no2;
+            $("#ans").html(result);
+        }
+        function Substract() {
+            var no1 = parseInt($(".num1").val());
+            var no2 = parseInt($(".num2").val());
+            var result = no1 - no2;
+            $("#ans").html(result);
+        }
+        function Multiply() {
+            var no1 = parseInt($(".num1").val());
+            var no2 = parseInt($(".num2").val());
+            var result = no1 * no2;
+            $("#ans").html(result);
+        }    
+
+} --}}
+
+$("#add").click(function(){
+  $.ajax({url: "index/cal/add"){
+    location.reload();
+  }});
+});
+
+$("#sub").click(function(){
+  $.ajax({url: "index/cal/sub"){
+    location.reload();
+  }});
+});
+
+$("#mul").click(function(){
+  $.ajax({url: "index/cal/mul"){
+     location.reload();
+  }});
+});
+      
+
+    </script>
 </body>
+
 </html>
