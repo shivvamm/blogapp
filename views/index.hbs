@@ -68,16 +68,13 @@
         }    
 
 } --}}
-
+var x =parseInt((".num1").val());
+var y =parseInt((".num2").val()),
 
 
  $(document).ready(function(){
   $("#add").click(function(){
-   $.POST("/cal", function(){
-     var x = parseInt($(".num1").val());
-      var y = parseInt((".num1").val());
-      var result = x+y;
-      res.json(result);
+   $.POST("/cal/add", function(data,status){
   });
 });  
 
