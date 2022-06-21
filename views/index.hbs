@@ -70,20 +70,17 @@
 } --}}
 
 $("#add").click(function(){
-  $.ajax({url: "index/cal/add"){
-    location.reload();
+  $.POST({url: "index/cal/add"){
   }});
 });
 
 $("#sub").click(function(){
-  $.ajax({url: "index/cal/sub"){
-    location.reload();
+  $.POST({url: "index/cal/sub"){
   }});
 });
 
 $("#mul").click(function(){
-  $.ajax({url: "index/cal/mul"){
-     location.reload();
+  $.POST({url: "index/cal/mul"){
   }});
 });
       
