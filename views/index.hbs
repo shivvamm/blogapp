@@ -69,21 +69,15 @@
 
 } --}}
 
-$("#add").click(function(){
-  $.POST({url: "index/cal/add"){
-  }});
-});
-
-$("#sub").click(function(){
-  $.POST({url: "index/cal/sub"){
-  }});
-});
-
-$("#mul").click(function(){
-  $.POST({url: "index/cal/mul"){
-  }});
-});
-      
+ $(document).ready(function(){
+  $("#add").click(function(){
+   $.POST("cal/add", function(){
+     var x = parseInt($(".num1").val());
+      var y = parseInt((".num1").val());
+      var result = x+y;
+      res.json(result);
+  });
+});  
 
     </script>
 </body>
