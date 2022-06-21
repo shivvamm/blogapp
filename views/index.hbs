@@ -71,7 +71,7 @@
 
  $(document).ready(function(){
   $("#add").click(function(){
-   $.POST("cal/add", function(){
+   $.POST("/cal", function(){
      var x = parseInt($(".num1").val());
       var y = parseInt((".num1").val());
       var result = x+y;
