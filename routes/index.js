@@ -21,24 +21,55 @@ router.get('/cal',function(req, res){
   res.render('index');
 });
 
-router.all('/cal/add',function(req, res){
-    var result=x+y;
-  // res.render('index',result);
-  console.log(result);
-});
+// router.all('/cal/add',function(req, res){
+//     var result=x+y;
+//   // res.render('index',result);
+//   console.log(result);
+// });
 
-router.all('/cal/sub',function(req, res){
-    var resutl=x-y;
-  res.render('index',result);
-});
+// router.all('/cal/sub',function(req, res){
+//     var resutl=x-y;
+//   res.render('index',result);
+// });
 
-router.all('/cal/mul',function(req, res){
-  var x=parseInt(req.body.num1);
-    var y=parseInt(req.body.num2);
-    var result=x*y;
+// router.all('/cal/mul',function(req, res){
+//   var x=parseInt(req.body.num1);
+//     var y=parseInt(req.body.num2);
+//     var result=x*y;
     
-  res.render('index',result);
+//   res.render('index',result);
+// });
+
+
+router.all('/add',function(req, res){
+  console.log("ADDITION");
+  console.log(req.body);
+  var x = parseInt(req.body.a);
+  var y =parseInt(req.body.b);
+  var result =x+y;
+  console.log(result);
+  res.json(result);
 });
 
+router.all('/sub',function(req, res){
+  console.log("SUBTRACTION");
+  console.log(req.body);
+  var x = parseInt(req.body.a);
+  var y =parseInt(req.body.b);
+  var result =x-y;
+  console.log(result);
+  res.json(result);
+});
+
+router.all('/mul',function(req, res){
+  console.log("MULTIPLICATION");
+  console.log(req.body);
+  var x = parseInt(req.body.a);
+  var y =parseInt(req.body.b);
+  var result =x*y;
+  console.log(result);
+  res.json(result);
+
+});
 
 module.exports = router;
