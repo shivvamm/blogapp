@@ -5,16 +5,28 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     <title>CALCULATOR</title>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     <style>
-        .cal {
+        form {
+            text-align: center;
+            width: 70%;
+        }
+
+        #calc {
             display: flex;
             justify-content: center;
         }
 
-        fieldset{
+        .center {
+            margin-top: 30px;
+            border: 5px solid #ADD8E6;
+            display: flex;
+            justify-content: center;
+            width:70%;
+        }
+
+        fieldset {
             border: 5px solid #ADD8E6;
         }
 
@@ -29,83 +41,64 @@
             margin-top: 10px;
             margin-bottom: 10px;
         }
-
-        .ans {
-            margin-top: 20px;
-        }
-
-        .btn-cal {
-            margin-top: 20px;
-        }
-
-        #form {
-            width: 50%;
-            text-align: center;
-        }
     </style>
 </head>
 
 <body>
-
-    <div class="cal">
-        <form  id="form">
+    <div id="calc">
+        <form>
             <fieldset>
                 <legend>Calulator</legend>
-                <section class="num-con"> <label> Number 1</label><input type="number" class="num1" name="num1"><br>
-                </section>
-                <section calss="num-con"><label> Number 2</label><input type="number" class="num2" name="num2"><br>
-                </section>
-                <div class="btn-cal"> <button id="add">ADD</button> <button id="sub">SUB</button><button
-                        id="mul">MULTIPLY</button><br></div>
-                <div class="ans">
-                    <label>ANSWER
-                        <span id="ans" class="num-con"> :{{result}}</span>
-                    </label>
-                </div>
+                <section class="num-con"> <label> Number 1</label><input type="number" class="num1" name="num1"
+                        id="num1"><br></section>
+                <section calss="num-con"><label> Number 2</label><input id="num2" type="number" class="num2"
+                        name="num2"><br></section>
+                <button id="1" class="add">ADD</button>
+                <button id="2" class="sub">SUB</button>
+                <button id="3" class="mul">MULTIPLY</button><br>
+                <br>
             </fieldset>
         </form>
     </div>
-
-
+    <div class="center">
+        <b id="ans"></b>
+    </div>
     <script>
-
-            { { !--CALCULATOR BY AJAX AND JQUERY-- } }
-            $(document).ready(() => {
-                $("#add").click(function (event) {
-                    event.preventDefault()//uses to preventDefault functionality of event
-                    console.log($(".num1").val())
-                    console.log($(".num2").val())
-                    $.post({ url: "/add", data: { a: $(".num1").val(), b: $(".num2").val() } }).then((data) => {
-                        console.log(data);
-                        $("#ans").append('<b>' + data + '</b>');
-                    });
+        $(document).ready(() => {
+            $(".add").click(function (event) {
+                event.preventDefault()//uses to preventDefault functionality of event
+                console.log($(".num1").val())
+                console.log($(".num2").val())
+                $.post({ url: "/add", data: { a: $(".num1").val(), b: $(".num2").val() } }).then((data) => {
+                    console.log(data);
+                    $("#ans").append('<p>' + "ANSWER :" + data + '</p>');
                 });
             });
+        })
 
-            $(document).ready(() => {
-                $("#sub").click(function (event) {
-                    event.preventDefault()//uses to preventDefault functionality of event
-                    console.log($(".num1").val())
-                    console.log($(".num2").val())
-                    $.post({ url: "/sub", data: { a: $(".num1").val(), b: $(".num2").val() } }).then((data) => {
-                        console.log(data);
-                        $("#ans").append('<b>' + data + '</b>');
-                    });
+        $(document).ready(() => {
+            $(".sub").click(function (event) {
+                event.preventDefault()//uses to preventDefault functionality of event
+                console.log($(".num1").val())
+                console.log($(".num2").val())
+                $.post({ url: "/sub", data: { a: $(".num1").val(), b: $(".num2").val() } }).then((data) => {
+                    console.log(data);
+
+                    $("#ans").append('<p>' + "ANSWER :" + data + '</p>');
                 });
             });
-            $(document).ready(() => {
-                $("#mul").click(function (event) {
-                    event.preventDefault()//uses to preventDefault functionality of event
-                    console.log($(".num1").val())
-                    console.log($(".num2").val())
-                    $.post({ url: "/mul", data: { a: $(".num1").val(), b: $(".num2").val() } }).then((data) => {
-                        console.log(data);
-                        $("#ans").append('<b>' + data + '</b>');
-                    });
+        })
+        $(document).ready(() => {
+            $(".mul").click(function (event) {
+                event.preventDefault()//uses to preventDefault functionality of event
+                console.log($(".num1").val())
+                console.log($(".num2").val())
+                $.post({ url: "/mul", data: { a: $(".num1").val(), b: $(".num2").val() } }).then((data) => {
+                    console.log(data);
+                    $("#ans").append('<p>' + "ANSWER :" + data + '</p>');
                 });
             });
-
-
+        })
     </script>
 </body>
 
