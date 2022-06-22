@@ -95,13 +95,16 @@
         </table>
     </div>
     <script>
-        var m = $(".num1").val();
-        var n = $(".num2").val();
+       
         $(document).ready(() => {
+             var m = $(".num1").val();
+            var n = $(".num2").val();
             $(".add").click(function (event) {
                 event.preventDefault()//uses to preventDefault functionality of event
                 console.log($(".num1").val())
                 console.log($(".num2").val())
+                var m = $(".num1").val()
+                var n = $(".num2").val()
                 $.post({ url: "/add", data: { a: $(".num1").val(), b: $(".num2").val() } }).then((data) => {
                     console.log(data);
                     $("#ans").append('<p>' + "ANSWER :" + data + '</p>');
@@ -119,6 +122,10 @@
                 event.preventDefault()//uses to preventDefault functionality of event
                 console.log($(".num1").val())
                 console.log($(".num2").val())
+                var m = $(".num1").val();
+                var n = $(".num2").val();
+                var m = $(".num1").val()
+                var n = $(".num2").val()
                 $.post({ url: "/sub", data: { a: $(".num1").val(), b: $(".num2").val() } }).then((data) => {
                     console.log(data);
 
@@ -135,6 +142,8 @@
                 event.preventDefault()//uses to preventDefault functionality of event
                 console.log($(".num1").val())
                 console.log($(".num2").val())
+                var m = $(".num1").val()
+                var n = $(".num2").val()
                 $.post({ url: "/mul", data: { a: $(".num1").val(), b: $(".num2").val() } }).then((data) => {
                     console.log(data);
                     $("#ans").append('<p>' + "ANSWER :" + data + '</p>');
