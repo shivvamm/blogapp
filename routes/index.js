@@ -33,6 +33,7 @@ router.get('/cal',function(req, res){
        if(err) throw err;
 
        console.log(rows.length);
+       
     });
  });
   res.render('index');
@@ -41,18 +42,7 @@ router.get('/cal',function(req, res){
 
 
 
-router.get('/read', function(req, res) {
-  pool.getConnection(function (err,connection){
-     connection.query("SELECT * FROM SHIVAMP",function(err,rows){
-        connection.release();
-        if(err) throw err;
 
-        console.log(rows.length);
-        res.send(JSON.stringify(rows));
-     });
-  });
- 
-});
 
 
 
@@ -79,7 +69,7 @@ router.get('/read', function(req, res) {
 router.all('/add',function(req, res){
   console.log("ADDITION");
   console.log(req.body);
-  var o = "+"
+  var o = "+";
   var x = parseInt(req.body.a);
   var y =parseInt(req.body.b);
   var result =x+y;
@@ -98,21 +88,39 @@ router.all('/add',function(req, res){
 router.all('/sub',function(req, res){
   console.log("SUBTRACTION");
   console.log(req.body);
+  var o = "+";
   var x = parseInt(req.body.a);
   var y =parseInt(req.body.b);
   var result =x-y;
   console.log(result);
   res.json(result);
+  pool.getConnection(function (err,connection){
+    connection.query("INSERT INTO RESULTS (NUM1, NUM2 , OP,  RES) VALUES ('"+x+"', '"+y+"','"+o+"','"+result+"')",function(err,rows){
+       connection.release();
+       if(err) throw err;
+       console.log(rows.length);
+       res.send(JSON.stringify(rows));
+    });
+ });
 });
 
 router.all('/mul',function(req, res){
   console.log("MULTIPLICATION");
   console.log(req.body);
+  var o = "+";
   var x = parseInt(req.body.a);
   var y =parseInt(req.body.b);
   var result =x*y;
   console.log(result);
   res.json(result);
+  pool.getConnection(function (err,connection){
+    connection.query("INSERT INTO RESULTS (NUM1, NUM2 , OP,  RES) VALUES ('"+x+"', '"+y+"','"+o+"','"+result+"')",function(err,rows){
+       connection.release();
+       if(err) throw err;
+       console.log(rows.length);
+       res.send(JSON.stringify(rows));
+    });
+ });
 
 });
 
