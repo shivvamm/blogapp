@@ -59,7 +59,7 @@ router.post('/getLogin', function(req, res) {
 
 
 var pool = mysql.createPool({
-   connectionLimit: 10,
+   connectionLimit: 100000,
    host : 'easylearning.guru',
    user :  'kcc_student',
    password : 'Kccitm.edu.in1',
@@ -71,7 +71,6 @@ router.get('/read', function(req, res) {
       connection.query("SELECT * FROM SHIVAMP",function(err,rows){
          connection.release();
          if(err) throw err;
-
          console.log(rows.length);
          res.send(JSON.stringify(rows));
       });

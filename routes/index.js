@@ -29,13 +29,11 @@ var pool = mysql.createPool({
 router.get('/cal',function(req, res){
   pool.getConnection(function (err,connection){
     connection.query("SELECT * FROM   RESULTS ORDER BY id",function(err,rows){
-       connection.release();
        if(err) throw err;
-
        console.log(rows.length);
-       
     });
  });
+ 
   res.render('index');
 });
 
@@ -79,8 +77,7 @@ router.all('/add',function(req, res){
     connection.query("INSERT INTO RESULTS (NUM1, NUM2 , OP,  RES) VALUES ('"+x+"', '"+y+"','"+o+"','"+result+"')",function(err,rows){
        connection.release();
        if(err) throw err;
-       console.log(rows.length);
-       res.send(JSON.stringify(rows));
+       else console.log(rows.length);
     });
  });
 });
@@ -88,7 +85,7 @@ router.all('/add',function(req, res){
 router.all('/sub',function(req, res){
   console.log("SUBTRACTION");
   console.log(req.body);
-  var o = "+";
+  var o = "-";
   var x = parseInt(req.body.a);
   var y =parseInt(req.body.b);
   var result =x-y;
@@ -99,7 +96,6 @@ router.all('/sub',function(req, res){
        connection.release();
        if(err) throw err;
        console.log(rows.length);
-       res.send(JSON.stringify(rows));
     });
  });
 });
@@ -107,7 +103,7 @@ router.all('/sub',function(req, res){
 router.all('/mul',function(req, res){
   console.log("MULTIPLICATION");
   console.log(req.body);
-  var o = "+";
+  var o = "*";
   var x = parseInt(req.body.a);
   var y =parseInt(req.body.b);
   var result =x*y;
@@ -118,7 +114,6 @@ router.all('/mul',function(req, res){
        connection.release();
        if(err) throw err;
        console.log(rows.length);
-       res.send(JSON.stringify(rows));
     });
  });
 
