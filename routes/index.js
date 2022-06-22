@@ -30,11 +30,13 @@ router.get('/cal',function(req, res){
   pool.getConnection(function (err,connection){
     connection.query("SELECT * FROM   RESULTS ORDER BY id",function(err,rows){
        if(err) throw err;
-       console.log(rows.length);
+       else console.log(rows);
+       var obj = rows;
+       res.render('index',{obj});
     });
  });
  
-  res.render('index');
+ 
 });
 
 
