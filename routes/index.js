@@ -19,7 +19,7 @@ var mysql = require('mysql');
 // });
 
 var pool = mysql.createPool({
-  connectionLimit: 10,
+  connectionLimit: 100000,
   host : 'easylearning.guru',
   user :  'kcc_student',
   password : 'Kccitm.edu.in1',
@@ -31,8 +31,8 @@ router.get('/cal',function(req, res){
     connection.query("SELECT * FROM   RESULTS ORDER BY id",function(err,rows){
        if(err) throw err;
        else console.log(rows);
-       var obj = rows;
-       res.render('index',{obj});
+       var row = JSON.stringify(rows)
+       res.render('index',{row});
     });
  });
  
